@@ -90,6 +90,8 @@ crtpFullStateSetpointRequest::crtpFullStateSetpointRequest(
 	this->omegaz = s * yawRate;
 }
 
+//generate streaming setpoint for NineState model used in Sam-Yorai Controller
+
 crtpStopRequest::crtpStopRequest()
 	: header(0X07, 0), type(0)
 {}
@@ -120,6 +122,21 @@ crtpPositionSetpointRequest::crtpPositionSetpointRequest(
 	this->y = y;
 	this->z = z;
 	this->yaw = yaw;
+}
+
+crtpNineStateSetpointRequest::crtpNineStateSetpointRequest(
+        float rateRoll,
+        float ratePitch,
+        float rateYaw,
+        float thrust)
+        : header(0X07, 0), type(8)
+{
+    float s = 1000.0;
+    this->rateRoll = s * rateRoll;
+    this->ratePitch = s * ratePitch;
+    this->rateYaw = s * rateYaw;
+    this->thrust = s * thrust;
+
 }
 
 template<class T>

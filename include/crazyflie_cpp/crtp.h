@@ -1090,9 +1090,21 @@ struct crtpNotifySetpointsStopRequest
 }__attribute__((packed));
 CHECKSIZE(crtpNotifySetpointsStopRequest);
 
-// Port 0x08 (High-level Setpoints)
+struct crtpNineStateSetpointRequest {
+    crtpNineStateSetpointRequest(
+            float rateRoll, float ratePitch, float rateYaw, float thrust
+            );
+    const crtp header;
+    uint8_t type;
+    int16_t rateRoll;  // angular velocity - milliradians / sec
+    int16_t ratePitch; //  (NOTE: limits to about 5 full circles per sec.
+    int16_t rateYaw;   //   may not be enough for extremely aggressive flight.)
+    int16_t thrust;
+} __attribute__((packed));
+CHECKSIZE(crtpNineStateSetpointRequest);
 
-struct crtpCommanderHighLevelSetGroupMaskRequest
+
+
 {
   crtpCommanderHighLevelSetGroupMaskRequest(
     uint8_t groupMask)
