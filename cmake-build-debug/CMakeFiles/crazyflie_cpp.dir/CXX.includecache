@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/crazyflie_cpp/Crazyradio.h
+stdint.h
+-
+vector
+-
+ITransport.h
+../include/crazyflie_cpp/ITransport.h
+USBDevice.h
+../include/crazyflie_cpp/USBDevice.h
+
+../include/crazyflie_cpp/ITransport.h
+stdint.h
+-
+fstream
+-
+
+../include/crazyflie_cpp/USBDevice.h
+stdint.h
+-
+
+../include/crazyflie_cpp/crtp.h
+Crazyradio.h
+../include/crazyflie_cpp/Crazyradio.h
+cstdint
+-
+
+/home/chris/Georgia_Tech/Robotarium_Stuff/robotarium_crazyswarm/ros_ws/src/crazyflie_ros/crazyflie_cpp/src/crtp.cpp
+stdint.h
+-
+math.h
+-
+cstring
+-
+crtp.h
+/home/chris/Georgia_Tech/Robotarium_Stuff/robotarium_crazyswarm/ros_ws/src/crazyflie_ros/crazyflie_cpp/src/crtp.h
+
