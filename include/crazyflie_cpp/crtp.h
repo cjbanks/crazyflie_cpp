@@ -1107,6 +1107,7 @@ CHECKSIZE(crtpNineStateSetpointRequest);
 
 // Port 0x08 (High-level Setpoints)
 
+struct crtpCommanderHighLevelSetGroupMaskRequest
 {
   crtpCommanderHighLevelSetGroupMaskRequest(
     uint8_t groupMask)
