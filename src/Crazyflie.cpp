@@ -233,7 +233,7 @@ void Crazyflie::sendFullStateSetpoint(
 void Crazyflie::sendNineStateSetpoint(
         float x, float y, float z,
         float vx, float vy, float vz,
-        float qx, float qy, float qz, float qw
+        float qx, float qy, float qz, float qw)
 {
     crtpNineStateSetpointRequest request(
             x,y, z, vx, vy, vz, qx, qy, qz, qw);
@@ -426,8 +426,7 @@ void Crazyflie::writeFlash(
       // std::cout << "request: " << page << " " << address << std::endl;
       bootloaderLoadBufferRequest req(target, usedBuffers, address);
       size_t requestedSize = std::min<size_t>(data.size() - offset, std::min<size_t>(25, pageSize - address));
-      memcpy(req.data, &data[offset], requestedSize);
-      // addRequest(req, 0);
+      memcpy(req.data, &data[offset], requestedSize);    // addRequest(req, 0);
       // for (size_t i = 0; i < 10; ++i)
       // std::cout << "request: " << req.page << " " << req.address << " " << requestedSize << std::endl;
       // for (size_t i = 0; i < 10; ++i) {
