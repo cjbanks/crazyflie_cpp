@@ -138,7 +138,9 @@ public:
     float rollRate, float pitchRate, float yawRate);
 
   void sendNineStateSetpoint(
-          float rateRoll, float ratePitch, float rateYaw, float thrust);
+          float x, float y, float z,
+          float vx, float vy, float vz,
+          float qx, float qy, float qz, float qw);
 
   void sendVelocityWorldSetpoint(
     float x, float y, float z, float yawRate);

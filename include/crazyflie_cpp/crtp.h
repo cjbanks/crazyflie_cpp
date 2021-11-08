@@ -1092,14 +1092,19 @@ CHECKSIZE(crtpNotifySetpointsStopRequest);
 
 struct crtpNineStateSetpointRequest {
     crtpNineStateSetpointRequest(
-            float rateRoll, float ratePitch, float rateYaw, float thrust
-            );
+            float x, float y, float z,
+            float vx, float vy, float vz,
+            float qx, float qy, float qz, float qw
+    );
     const crtp header;
     uint8_t type;
-    int16_t rateRoll;  // angular velocity - milliradians / sec
-    int16_t ratePitch; //  (NOTE: limits to about 5 full circles per sec.
-    int16_t rateYaw;   //   may not be enough for extremely aggressive flight.)
-    int16_t thrust;
+    int16_t x;
+    int16_t y;
+    int16_t z;
+    int16_t vx;
+    int16_t vy;
+    int16_t vz;
+    int32_t quat; // compressed quaternion, xyzw
 } __attribute__((packed));
 CHECKSIZE(crtpNineStateSetpointRequest);
 

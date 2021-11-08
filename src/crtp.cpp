@@ -125,17 +125,26 @@ crtpPositionSetpointRequest::crtpPositionSetpointRequest(
 }
 
 crtpNineStateSetpointRequest::crtpNineStateSetpointRequest(
-        float rateRoll,
-        float ratePitch,
-        float rateYaw,
-        float thrust)
+        float x,float y, float z,
+        float vx, float vy, float vz,
+        float qx, float qy, float qz, float qw)
         : header(0X07, 0), type(8)
 {
     float s = 1000.0;
-    this->rateRoll = s * rateRoll;
-    this->ratePitch = s * ratePitch;
-    this->rateYaw = s * rateYaw;
-    this->thrust = s * thrust;
+    this->x = s * x;
+    this->y = s * y;
+    this->z = s * z;
+
+    this->vx = s * vx;
+    this->vy = s * vy;
+    this->vz = s * vz;
+
+    float q[4] = { qx, qy, qz, qw };
+    this->quat = quatcompress(q);
+
+
+
+
 
 }
 
